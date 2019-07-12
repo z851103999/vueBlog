@@ -22,7 +22,12 @@
       <el-form-item>
         <el-button class="row-bg" @click="submitForm('ruleFrom')">注  册</el-button>
       </el-form-item>
-
+        <div class="tipare">
+        <p>
+          已有账号
+          <router-link to="/login">登 录</router-link>
+        </p> 
+        </div>
     </el-form>
     </section>
   </div>
@@ -30,4 +35,4 @@
 
 <script src="./template.js"></script>
 
-<styles src="./template.scss" scoped></styles>
+<styles src="./template.less" scoped></styles>

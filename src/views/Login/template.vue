@@ -29,4 +29,4 @@
 
 <script src="./template.js"></script>
 
-<styles src="./template.scss" scoped></styles>
+<styles src="./template.less" scoped></styles>

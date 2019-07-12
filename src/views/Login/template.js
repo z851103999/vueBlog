@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import request from '../../helpers/request'
+import request from '../../helpers/request';
 
 window.request = request;
 
