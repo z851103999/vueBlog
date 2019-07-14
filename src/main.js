@@ -1,12 +1,15 @@
 import Vue from 'vue'
-import './plugins/axios'
+import axios from 'axios'
 import App from './App.vue'
-import router from './router'
+import router from './router/index'
 import store from './store'
 import ElementUI from 'element-ui'
-import './styles.scss'
+import 'element-ui/lib/theme-chalk/index.css'
+import './assets/base.less'
+
 
 Vue.use(ElementUI)
+
 
 Vue.config.productionTip = false
 
