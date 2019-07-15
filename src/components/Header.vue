@@ -15,6 +15,22 @@
     </template>
   </header>
 </template>
+<script>
+import { mapGetters, mapActions } from "vuex";
+export default {
+  data() {
+    return {};
+  },
+  created() {
+    this.checkLogin()
+  },
+  methods:{
+    ...mapActions([
+      'checkLogin'
+    ])
+  }
+};
+</script>
 
 
 <style lang="less">
@@ -45,32 +61,30 @@ header.no-login {
   }
 }
 // 登录时候的样式
-header.login{
+header.login {
   display: flex;
-  align-items:center;
+  align-items: center;
   background: @bgColor;
 
-  h1{
-    margin:0;
-    padding:0;
-    color:#fff;
-    font-size:40px;
-    text-transform:uppercase;
-    flex:1;
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 40px;
+    text-transform: uppercase;
+    flex: 1;
   }
-   .edit{
-     color:#fff;
-     font-size:30px;
-   }
+  .edit {
+    color: #fff;
+    font-size: 30px;
+  }
 
-   .avatar{
-     width: 40px;
-     height: 40px;
-     border: 1px solid #fff;
-     border-radius: 50%;
-     margin-left: 15px;
-   }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin-left: 15px;
+  }
 }
-
-
 </style>
