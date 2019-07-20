@@ -1,45 +1,57 @@
-import jwt_decode from "jwt-decode";
-import request from '../../helpers/request';
+import { mapActions } from 'vuex'
 
-window.request = request;
+// export default {
+//   data () {
+//     return {
+//       username: '',
+//       password: ''
+//     }
+//   },
+//   methods: {
+//  ...mapActions(['login']),
+//     onLogin(){
+//       this.login({username:this.username,password:this.password})
+//       .then(() =>{
+//         this.$router.push({path:this.$router.query.redirect || '/'})
+//       })
+//     }
+//   }
+// }
 
 export default {
-  name: "login",
+  name: 'register',
   data() {
-      var username = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("用户名不能为空!"));
+    var validatePass2 = (rule, value, callback) => {
+      if (value !== this.loginUser.password) {
+        callback(new Error("两次输入密码不一致"))
       } else {
-        callback();
+        callback()
       }
-    }
+    };
+
     return {
-      LoginUser: {
-        username:"",
-        password: ""
-      },
+      loginUser: { password: '', username: '' },
       rules: {
         username: [
-          { required: true, message: "用户名不能为空", trigger: "change" },
-          { min: 2, max: 30, message: "长度在 2 到 30 个字符", trigger: "change" }
+          { required: true, message: "用户名不能为空", trigger: 'change' },
+          { min: 2, max: 30, message: "长度在2到30个字符", trigger: "blur" }
         ],
         password: [
           { required: true, message: "密码不能为空", trigger: "blur" },
-          { min: 6, max: 30, message: "长度在 6 到 30 个字符", trigger: "blur" }
+          { min: 6, max: 30, message: "长度在 6 到 30 个字符", trigger: "blur" },
+          { validator: validatePass2, trigger: "blur" }
         ]
       }
     };
   },
-  methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          alert("submit!");// 发送接口等待写
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+  methods: { 
+    ...mapActions(['login']),
+    onLogin() {
+      this.login(this.loginUser)
+        .then(() => {
+          this.$router.push({ path:this.$router.query.redirect || '/' })
+        })
     }
   }
-};
+
+}
