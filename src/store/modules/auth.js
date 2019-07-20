@@ -1,7 +1,6 @@
-import auth from '../../api/auth'
-import { longStackSupport } from 'q';
+import auth from '../../api/auth';
 
-const state = {
+const state = {//用户无，未登录
   user: null,
   isLogin: false
 }
@@ -20,14 +19,10 @@ const mutations = {
 
 const actions = {
   async login({ commit }, { username, password }) {
-    // return auth.login({ username, password })
-    //   .then(res => {
-    //     commit('setUser', { user: res.data })//用户登录成功
-    //     commit('setLogin', { islogin: true })//用户已登录状态
-    //   })
     let res = await auth.login({ username, password })
-    commit('setUser', { user: res.data })
-    commit('setLogin', { islogin: true })
+    commit('setUser', { user: res.data })//用户登录成功
+    commit('setLogin', { islogin: true })//用户已登录状态
+    return res
   },
   async register({ commit }, { username, password }) {
     let res = await auth.register({ username, password })
@@ -35,7 +30,7 @@ const actions = {
     commit('setLogin', { isLogin: true })
     return res.data
   },
-  async longStackSupport({ commit }) {
+  async logout({ commit }) {
     await auth.logout()
     commit('setUser', { user: null })
     commit('serLogin', { islogin: false })
