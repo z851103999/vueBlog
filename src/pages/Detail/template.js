@@ -11,12 +11,12 @@ export default {
     }
   },
   created(){
-    this.blogId =this.$router.parames.blogId
+    this.blogId =this.$router.parames.blogId;
     blog.getDetail({blogId:this.blogId}).then(res =>{
       // console.log(res)
-      this.title =res.data.title
-      this.rawContent =res.data.rawContent
-      this.createAt = res.data.createAt
+      this.title =res.data.title;
+      this.rawContent =res.data.rawContent;
+      this.createAt = res.data.createAt;
       this.user =res.data.user
     })
   },

@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <section class="blog-posts">
-      <router-link v-for="blog in blogs" v-bind:key="blog.id" class="item"  :to="`/detail/${blog.id}`">
+      <router-link v-for="blog in blogs":key="blog.id" class="item"  :to="`/detail/${blog.id}`">
         <figure class="avatar">
           <img :src="blog.user.avatar" :alt="blog.user.username">
           <figcaption>{{blog.user.username}}</figcaption> 
