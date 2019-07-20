@@ -1,5 +1,6 @@
 import request from '../helpers/request';
 //blog进行接口封装
+window.blog = blog
 const URL = {
     GET_LIST: '/blog',
     GET_DETAIL: '/blog/:blogId',

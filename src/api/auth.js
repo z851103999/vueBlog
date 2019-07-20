@@ -1,5 +1,5 @@
 import request from '../helpers/request'
-
+window.auth = window
 //对url进行封装
 
 const URL = {

@@ -1,32 +1,19 @@
 <template>
-  <div class="login">
-      <section class="form_container">
-    <el-form :model="LoginUser" status-icon :rules="rules" ref="LoginForm" label-width="100px" class="LoginFrom">
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="LoginUser.username" placeholder="请输入用户名"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input
-          type="password"
-          v-model="LoginUser.password"
-          autocomplete="off"
-          placeholder="请输入密码"
-        ></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button class="row-bg" @click="submitForm('LoginForm')">登 录</el-button>
-      </el-form-item>
-      <div class="tipare">
-        <p>
-          还没有账号？想在
-          <router-link to="/register">注册</router-link>
-        </p>
-      </div>
-    </el-form>
-    </section>
+<div class="login">
+  <el-form :model="loginUser" status-icon :rules="rules" ref="loginUser" label-width="100px" class="login">
+    <el-form-item label="姓名" prop="username">
+      <el-input type="text" v-model="loginUser.username" placeholder="用户名"></el-input>
+    </el-form-item>
+    <el-form-item label="密码" prop="password">
+      <el-input type="password" v-model="loginUser.password" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary"  class="submit_btn" @click="onLogin">登  录</el-button>
+    </el-form-item>
+  </el-form>
   </div>
 </template>
 
 <script src="./template.js"></script>
 
-<styles src="./template.less" scoped></styles>
+<style src="./template.less" lang="less"></style>
