@@ -11,7 +11,7 @@ export default {
   },
 
   created() {
-    this.page = parseInt(this.$route.query.page) || 1  //如果没有设置页数就为1否则获取页数
+    this.page = parseInt(this.$route.query.page) || 1
     blog.getIndexBlogs({ page: this.page }).then(res => {
       console.log(res)
       this.blogs = res.data
@@ -25,9 +25,9 @@ export default {
       console.log(newPage)
       blog.getIndexBlogs({ page: newPage }).then(res => {
         console.log(res)
-        this.blogs = res.data;
-        this.total = res.total;
-        this.page = res.page;
+        this.blogs = res.data
+        this.total = res.total
+        this.page = res.page
         this.$router.push({ path: '/', query: { page: newPage}})
       })
     }

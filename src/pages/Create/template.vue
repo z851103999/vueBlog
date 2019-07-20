@@ -14,7 +14,7 @@
         <label>是否展示到首页</label>
         <el-switch v-model="atIndex" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
     </p>
-    <el-button @click="createBlog">确定</el-button>
+    <el-button @click="onCreate">确定</el-button>
   </div>
 </template>
 

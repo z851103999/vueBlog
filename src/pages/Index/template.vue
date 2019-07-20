@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <section class="blog-posts">
-      <router-link v-for="blog in blogs":key="blog.id" class="item"  :to="`/detail/${blog.id}`">
+      <router-link class="item" v-for="blog in blogs" :key="blog.id" :to="`/detail/${blog.id}`">
         <figure class="avatar">
           <img :src="blog.user.avatar" :alt="blog.user.username">
           <figcaption>{{blog.user.username}}</figcaption> 
@@ -10,10 +10,9 @@
         <p>{{blog.description}}</p>
       </router-link>
     </section>
-    <!-- 分页 -->
     <section class="pagination">
       <el-pagination
-        layout="prev, pager, next" 
+        layout="prev, pager, next"
         :total="total"
         :current-page="page"
         @current-change="onPageChange">
