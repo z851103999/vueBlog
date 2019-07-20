@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import store from '../store'
-window.store = store
 
 Vue.use(Router)
 
