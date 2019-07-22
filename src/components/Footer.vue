@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>© xiedaimala.com 2018 wechat: xiedaimala01</p>
+    <p>© XXXXXXX 2019 xxxxxxxx</p>
   </footer>
 </template>
 
